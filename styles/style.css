@@ -161,32 +161,37 @@
 
 /* filters */
 
+.card:nth-of-type(1) .card__image {
+  /* Первая картинка - без фильтра */
+  filter: none;
+}
+
 .card:nth-of-type(2) .card__image {
-  filter: saturate(885%);
+  filter: contrast(200%) saturate(200%);
 }
 
 .card:nth-of-type(3) .card__image {
-  filter: hue-rotate(285deg);
+  filter: hue-rotate(270deg) brightness(110%);
 }
 
 .card:nth-of-type(4) .card__image {
-  filter: blur(4px);
+  filter: sepia(60%) blur(1px);
 }
 
 .card:nth-of-type(5) .card__image {
-  filter: sepia(69%);
+  filter: grayscale(70%) contrast(150%);
 }
 
 .card:nth-of-type(6) .card__image {
-  filter: grayscale(100%);
+  filter: invert(85%) hue-rotate(120deg);
 }
 
 .card:nth-of-type(7) .card__image {
-  filter: brightness(20%);
+  filter: brightness(70%) contrast(180%);
 }
 
 .card:nth-of-type(8) .card__image {
-  filter: sepia(85%) hue-rotate(257deg) saturate(502%);
+  filter: saturate(300%) hue-rotate(45deg);
 }
 
 /* filters end */
