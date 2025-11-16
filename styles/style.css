@@ -1,49 +1,32 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ theme-dark — класс тёмной темы
-✦ theme-light — класс светлой темы
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-
-*/
-
 .page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 100px;
   padding-bottom: 100px;
-  font-family: var(--main-font);
-  font-variation-settings: "wght" var(--main-font-weight);
-  background-color: var(--background-color);
-  color: var(--accent-color);
-  background-image: var(--background-image);
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-normal);
+  background-color: var(--page-background);
+  color: var(--text-color);
+  background-image: var(--page-gradient);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 .max-width {
-  width: min(100%, var(--max-width));
+  width: min(100%, var(--content-width));
 }
 
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: clamp(7.5rem, 6.346rem + 4.923vw, 8.5rem);
   padding-bottom: 25px;
-  background-color: var(--background-color);
+  padding-top: clamp(7.5rem, 6.346rem + 4.923vw, 8.5rem);
+  background-color: var(--page-background);
   border: 2px solid currentColor;
-  font-family: var(--accent-font);
+  font-family: var(--font-accent);
   height: clamp(327px, 327px + 41 * (100vw - 320px) / 1120, 368px);
 }
 
@@ -59,74 +42,6 @@
   margin-bottom: 25px;
 }
 
-.theme-menu__list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.theme-menu__item {
-  padding-left: 18px;
-}
-
-.theme-menu__button {
-  position: relative;
-  display: flex;
-  gap: 5px;
-  padding: 0;
-  font-size: 14px;
-  text-transform: uppercase;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  transition: opacity ease 0.3s;
-}
-
-.theme-menu__button::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 2px;
-  bottom: -3px;
-  background-color: currentColor;
-  transform-origin: left;
-  scale: 0 1;
-  transition: scale ease 0.3s;
-}
-
-.theme-menu__button:hover {
-  opacity: 0.6;
-}
-
-.theme-menu__button:focus {
-  outline: none;
-}
-
-.theme-menu__button:focus-visible {
-  opacity: 0.6;
-}
-
-.theme-menu__button:focus-visible::after {
-  scale: 1;
-}
-
-.theme-menu__button::before {
-  content: "▶";
-  position: absolute;
-  left: -20px;
-  visibility: hidden;
-  animation: arrow 0.5s ease-in-out infinite alternate;
-}
-
-.theme-menu__button:disabled {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-.theme-menu__button:disabled::before {
-  visibility: visible;
-}
-
 .main {
   display: flex;
   flex-direction: column;
@@ -136,17 +51,17 @@
 }
 
 .card {
-  background-color: var(--background-color);
+  background-color: var(--page-background);
   border: 2px solid currentColor;
 }
 
 .card__title {
   padding: 5px 10px;
-  font-variation-settings: "wght" var(--title-font-weight);
+  font-weight: var(--font-weight-bold);
   font-size: 18px;
 }
 
-.card__image-wrapper {
+.card__image_full {
   position: relative;
   margin: 0;
   border-top: 2px solid currentColor;
@@ -159,58 +74,56 @@
   object-fit: cover;
 }
 
-/* filters */
+/* фильтры */
 
 .card:nth-of-type(1) .card__image {
-  /* Первая картинка - без фильтра */
   filter: none;
 }
 
 .card:nth-of-type(2) .card__image {
-  filter: contrast(200%) saturate(200%);
+  filter: saturate(200%) contrast(200%);
 }
 
 .card:nth-of-type(3) .card__image {
-  filter: hue-rotate(270deg) brightness(110%);
+  filter: brightness(110%) hue-rotate(270deg);
 }
 
 .card:nth-of-type(4) .card__image {
-  filter: sepia(60%) blur(1px);
+  filter: blur(5px) sepia(60%);
 }
 
 .card:nth-of-type(5) .card__image {
-  filter: grayscale(70%) contrast(150%);
+  filter: contrast(150%) grayscale(70%);
 }
 
 .card:nth-of-type(6) .card__image {
-  filter: invert(85%) hue-rotate(120deg);
+  filter: hue-rotate(120deg) invert(85%);
 }
 
 .card:nth-of-type(7) .card__image {
-  filter: brightness(70%) contrast(180%);
+  filter: contrast(180%) brightness(70%);
 }
 
 .card:nth-of-type(8) .card__image {
-  filter: saturate(300%) hue-rotate(45deg);
+  filter: hue-rotate(45deg) saturate(300%);
 }
 
-/* filters end */
+/* фильтры закончились */
 
 .card__image-caption {
   position: absolute;
   top: clamp(1.5625rem, 1.4183rem + 0.6154vw, 1.6875rem);
   right: clamp(0.6875rem, -0.3221rem + 4.3077vw, 1.5625rem);
-  font-family: var(--accent-font);
+  font-family: var(--font-accent);
   font-size: 14px;
   opacity: 0.5;
-  paint-order: stroke fill;
-  text-shadow: -1px 0 var(--background-color), 0 1px var(--background-color),
-    1px 0 var(--background-color), 0 -1px var(--background-color);
+  text-shadow: -1px 0 var(--page-background), 0 1px var(--page-background),
+    1px 0 var(--page-background), 0 -1px var(--page-background);
 }
 
-@supports (-webkit-text-stroke: 1px var(--background-color)) {
+@supports (-webkit-text-stroke: 1px var(--page-background)) {
   .card__image-caption {
-    -webkit-text-stroke: 1px var(--background-color);
+    -webkit-text-stroke: 1px var(--page-background);
     text-shadow: none;
   }
 }
@@ -260,8 +173,8 @@
   position: relative;
   cursor: pointer;
   border: 2px solid currentColor;
-  background: var(--background-color, #fff);
-  font-family: var(--accent-font);
+  background: var(--page-background, #fff);
+  font-family: var(--font-accent);
   font-size: 14px;
   transition: box-shadow ease 0.3s;
 }
@@ -270,9 +183,7 @@
   outline: none;
 }
 
-.button-fillable:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--accent-color);
-}
+
 
 .button-fillable::before {
   content: "";
@@ -282,25 +193,26 @@
   display: block;
   width: 100%;
   height: 100%;
-  background-color: var(--accent-color);
+  background-color: var(--text-color);
   border: inherit;
   scale: 0 1;
   transform-origin: left;
-  transition: scale ease-in-out 0.5s;
+  transition: scale 0.5s ease-in-out;
 }
 
 .button-fillable:hover::before {
+  content: "";
   scale: 1;
 }
 
 .button-fillable > * {
-  color: var(--button-text-color);
-  mix-blend-mode: difference;
+  color: var(--button-color);
+  mix-blend-mode: difference; /* заливка текста */
   position: relative;
 }
 
 .footer {
-  background: var(--background-color, #fff);
+  background: var(--page-background, #fff);
   max-width: calc(100% * 310 / 375);
 }
 
@@ -318,9 +230,9 @@
 }
 
 .dialog {
-  color: var(--accent-color);
+  color: var(--text-color);
   border: 2px solid currentColor;
-  background-color: var(--background-color, #fff);
+  background-color: var(--page-background, #fff);
   padding-top: 30px;
   padding-bottom: 30px;
   padding-left: clamp(1.875rem, 3.221rem + -3.077vw, 2.5rem);
@@ -351,7 +263,7 @@ dialog::backdrop {
 }
 
 .dialog__text {
-  font-family: var(--accent-font);
+  font-family: var(--font-accent);
   font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
